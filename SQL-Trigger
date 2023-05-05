@@ -1,0 +1,11 @@
+DELIMITER $
+CREATE TRIGGER generalis.tr_persona_general AFTER INSERT ON `persona` FOR EACH ROW
+BEGIN
+    INSERT INTO generalis.entrada_general(`id_persona`) VALUES (NEW.id);
+END $
+
+
+Los demas triggers serian condicionales basados en la información introducidad en el campo BD_CATEGORIA.
+
+He pensaod un poco y entiendo que necesitariamos mejor un campo para cada subdivision. 
+Estos 4 campos pueden ser delimitados para que solo acepten S o N y Si o No o simplemente un par que defina si es parte de esa subdivision o no.
