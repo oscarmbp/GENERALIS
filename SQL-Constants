@@ -1,0 +1,287 @@
+DROP TRIGGER IF EXISTS trigger_sexo_check;
+delimiter //
+CREATE TRIGGER trigger_sexo_check BEFORE INSERT ON persona 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.sexo <> "femenino" THEN 
+        IF New.sexo <> "masculino" THEN
+        IF New.sexo <> "otro" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Femenino / Masculnio / Otro';
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_categoria_check_entidad;
+delimiter //
+CREATE TRIGGER trigger_categoria_check_entidad BEFORE INSERT ON entidad 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.BD_Categoria <> "camesura" THEN 
+        IF New.BD_Categoria <> "diario venezolano" THEN
+        IF New.BD_Categoria <> "expoferia" THEN
+        IF New.BD_Categoria <> "colaboradores" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Camesura / Diario Venezolano / Expoferia / Colaboradores';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_categoria_check_persona;
+delimiter //
+CREATE TRIGGER trigger_categoria_check_persona BEFORE INSERT ON persona 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.BD_Categoria <> "camesura" THEN 
+        IF New.BD_Categoria <> "diario venezolano" THEN
+        IF New.BD_Categoria <> "expoferia" THEN
+        IF New.BD_Categoria <> "colaboradores" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Camesura / Diario Venezolano / Expoferia / Colaboradores';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_categoria_check_artistas;
+delimiter //
+CREATE TRIGGER trigger_categoria_check_artistas BEFORE INSERT ON artistas 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.BD_Categoria <> "camesura" THEN 
+        IF New.BD_Categoria <> "diario venezolano" THEN
+        IF New.BD_Categoria <> "expoferia" THEN
+        IF New.BD_Categoria <> "colaboradores" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Camesura / Diario Venezolano / Expoferia / Colaboradores';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_tipoentidad_check_entidad;
+delimiter //
+CREATE TRIGGER trigger_tipoentidad_check_entidad BEFORE INSERT ON entidad 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.tipo_entidad <> "Organización Gubernamental" THEN 
+        IF New.tipo_entidad <> "Organización No-Gubernamental" THEN
+        IF New.tipo_entidad <> "Organización Politica" THEN
+        IF New.tipo_entidad <> "Asociación" THEN
+        IF New.tipo_entidad <> "Fundación" THEN
+        IF New.tipo_entidad <> "Comunicación" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Empresa
+		Organizacion Gubernamental
+		Organizacion No-Gubernamental
+		Organizacion Politica
+		Asociación
+		Fundación
+		Comunicación';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_tipocolaboracion_check_artistas;
+delimiter //
+CREATE TRIGGER trigger_tipocolaboracion_check_artistas BEFORE INSERT ON artistas 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.tipo_colaboracion <> "invitado" THEN 
+        IF New.tipo_colaboracion <> "pagado" THEN
+        IF New.tipo_colaboracion <> "voluntario" THEN
+        IF New.tipo_colaboracion <> "honorario" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Invitado / Pagado / Voluntario / Honorario';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_tipocolaboracion_check_entidad;
+delimiter //
+CREATE TRIGGER trigger_tipocolaboracion_check_entidad BEFORE INSERT ON entidad 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.tipo_colaboracion <> "invitado" THEN 
+        IF New.tipo_colaboracion <> "pagado" THEN
+        IF New.tipo_colaboracion <> "voluntario" THEN
+        IF New.tipo_colaboracion <> "honorario" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Invitado / Pagado / Voluntario / Honorario';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_tipocolaboracion_check_persona;
+delimiter //
+CREATE TRIGGER trigger_tipocolaboracion_check_persona BEFORE INSERT ON persona 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.tipo_colaboracion <> "invitado" THEN 
+        IF New.tipo_colaboracion <> "pagado" THEN
+        IF New.tipo_colaboracion <> "voluntario" THEN
+        IF New.tipo_colaboracion <> "honorario" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Invitado / Pagado / Voluntario / Honorario';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_sexo_check_update;
+delimiter //
+CREATE TRIGGER trigger_sexo_check_update BEFORE UPDATE ON persona 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.sexo <> "femenino" THEN 
+        IF New.sexo <> "masculino" THEN
+        IF New.sexo <> "otro" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Femenino / Masculnio / Otro';
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_categoria_check_entidad_update;
+delimiter //
+CREATE TRIGGER trigger_categoria_check_entidad_update BEFORE UPDATE ON entidad 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.BD_Categoria <> "camesura" THEN 
+        IF New.BD_Categoria <> "diario venezolano" THEN
+        IF New.BD_Categoria <> "expoferia" THEN
+        IF New.BD_Categoria <> "colaboradores" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Camesura / Diario Venezolano / Expoferia / Colaboradores';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_categoria_check_persona_update;
+delimiter //
+CREATE TRIGGER trigger_categoria_check_persona_update BEFORE UPDATE ON persona 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.BD_Categoria <> "camesura" THEN 
+        IF New.BD_Categoria <> "diario venezolano" THEN
+        IF New.BD_Categoria <> "expoferia" THEN
+        IF New.BD_Categoria <> "colaboradores" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Camesura / Diario Venezolano / Expoferia / Colaboradores';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_categoria_check_artistas_update;
+delimiter //
+CREATE TRIGGER trigger_categoria_check_artistas_update BEFORE UPDATE ON artistas 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.BD_Categoria <> "camesura" THEN 
+        IF New.BD_Categoria <> "diario venezolano" THEN
+        IF New.BD_Categoria <> "expoferia" THEN
+        IF New.BD_Categoria <> "colaboradores" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Camesura / Diario Venezolano / Expoferia / Colaboradores';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_tipoentidad_check_entidad_update;
+delimiter //
+CREATE TRIGGER trigger_tipoentidad_check_entidad_update BEFORE UPDATE ON entidad 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.tipo_entidad <> "Organización Gubernamental" THEN 
+        IF New.tipo_entidad <> "Organización No-Gubernamental" THEN
+        IF New.tipo_entidad <> "Organización Politica" THEN
+        IF New.tipo_entidad <> "Asociación" THEN
+        IF New.tipo_entidad <> "Fundación" THEN
+        IF New.tipo_entidad <> "Comunicación" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Empresa
+		Organizacion Gubernamental
+		Organizacion No-Gubernamental
+		Organizacion Politica
+		Asociación
+		Fundación
+		Comunicación';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_tipocolaboracion_check_artistas_update;
+delimiter //
+CREATE TRIGGER trigger_tipocolaboracion_check_artistas_update BEFORE UPDATE ON artistas 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.tipo_colaboracion <> "invitado" THEN 
+        IF New.tipo_colaboracion <> "pagado" THEN
+        IF New.tipo_colaboracion <> "voluntario" THEN
+        IF New.tipo_colaboracion <> "honorario" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Invitado / Pagado / Voluntario / Honorario';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_tipocolaboracion_check_entidad_update;
+delimiter //
+CREATE TRIGGER trigger_tipocolaboracion_check_entidad_update BEFORE UPDATE ON entidad 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.tipo_colaboracion <> "invitado" THEN 
+        IF New.tipo_colaboracion <> "pagado" THEN
+        IF New.tipo_colaboracion <> "voluntario" THEN
+        IF New.tipo_colaboracion <> "honorario" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Invitado / Pagado / Voluntario / Honorario';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
+
+DROP TRIGGER IF EXISTS trigger_tipocolaboracion_check_persona_update;
+delimiter //
+CREATE TRIGGER trigger_tipocolaboracion_check_persona_update BEFORE UPDATE ON persona 
+    FOR EACH ROW 
+  BEGIN 
+        IF NEW.tipo_colaboracion <> "invitado" THEN 
+        IF New.tipo_colaboracion <> "pagado" THEN
+        IF New.tipo_colaboracion <> "voluntario" THEN
+        IF New.tipo_colaboracion <> "honorario" THEN
+        SIGNAL SQLSTATE '45000' SET message_text ='Los unicos valores permitidos son: Invitado / Pagado / Voluntario / Honorario';
+        END IF;
+        END IF;
+        END IF;
+        END IF;
+  END //
+delimiter ;
