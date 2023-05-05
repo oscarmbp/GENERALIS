@@ -1,0 +1,59 @@
+CREATE TABLE `entrada_general` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fecha` date DEFAULT NULL,
+  `id_persona` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_entrada_persona` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_artistas` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_artistas` FOREIGN KEY (`id_artistas`) REFERENCES `artistas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_entidad` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_entidad` FOREIGN KEY (`id_entidad`) REFERENCES `entidad` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  );
+  
+  CREATE TABLE `colaboradores_id` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fecha` date DEFAULT NULL,
+  `id_persona` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_entrada_persona_colab` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_artistas` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_artistas_colab` FOREIGN KEY (`id_artistas`) REFERENCES `artistas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_entidad` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_entidad_colab` FOREIGN KEY (`id_entidad`) REFERENCES `entidad` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  );
+  
+  CREATE TABLE `expoferia_id` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fecha` date DEFAULT NULL,
+  `id_persona` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_entrada_persona_expo` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_artistas` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_artistas_expo` FOREIGN KEY (`id_artistas`) REFERENCES `artistas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_entidad` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_entidad_expo` FOREIGN KEY (`id_entidad`) REFERENCES `entidad` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  );
+  
+  CREATE TABLE `diariovenezolano_id` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fecha` date DEFAULT NULL,
+  `id_persona` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_entrada_persona_diario` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_artistas` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_artistas_diario` FOREIGN KEY (`id_artistas`) REFERENCES `artistas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_entidad` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_entidad_diario` FOREIGN KEY (`id_entidad`) REFERENCES `entidad` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  );
+  
+  CREATE TABLE `camesura_id` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `fecha` date DEFAULT NULL,
+  `id_persona` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_entrada_persona_came` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_artistas` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_artistas_came` FOREIGN KEY (`id_artistas`) REFERENCES `artistas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  `id_entidad` int DEFAULT NULL,
+  CONSTRAINT `fk_entrada_entidad_came` FOREIGN KEY (`id_entidad`) REFERENCES `entidad` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  );
